@@ -1,0 +1,22 @@
+[workspace]
+
+[package]
+name = "fivegrok-parser"
+version = "0.1.0"
+edition = "2021"
+description = "Standalone DIAG frame parser for Qualcomm, MediaTek, and Samsung cellular modems (NR/LTE RRC, NAS, ML1, MAC/PDCP/RLC, PHY)"
+license = "MIT"
+repository = "https://github.com/yallasec/5grok-parser"
+keywords = ["5g", "lte", "diag", "qualcomm", "cellular"]
+categories = ["parser-implementations", "network-programming"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hex = "0.4"
+
+[features]
+default = []
+# Enable full ASN.1 UPER decode of BCCH (MIB/SIB1) messages.
+# Requires bringing your own `grok5-asn1` crate via a [patch] or path dep.
+asn1-rrc = []
